@@ -1,0 +1,4 @@
+2020/09/02 00:01:30 [error] 9#9: *2 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.25.0.4, server: , request: "GET /favicon.ico HTTP/1.0", host: "metalib-search.local", referrer: "http://metalib-search.local/"
+2020/09/02 00:03:02 [error] 9#9: *4 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.25.0.4, server: , request: "GET /favicon.ico HTTP/1.0", host: "invlabsserver.local", referrer: "http://invlabsserver.local/"
+2020/09/02 00:03:07 [error] 9#9: *7 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.25.0.4, server: , request: "GET /favicon.ico HTTP/1.0", host: "invlabsserver.local", referrer: "http://invlabsserver.local/"
+2020/09/02 00:04:13 [error] 9#9: *9 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 172.25.0.4, server: , request: "GET /favicon.ico HTTP/1.0", host: "invlabsserver", referrer: "http://invlabsserver/"

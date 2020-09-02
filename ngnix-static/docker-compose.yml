@@ -3,15 +3,15 @@ services:
     http-proxy:
         image: nginx:alpine
         container_name: http-proxy
-        env_file: .env/development
         volumes:
             - ./volumes/http-proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./volumes/http-proxy/docker-entrypoint.d:/docker-entrypoint.d:ro
+            - ./volumes/log:/var/log/nginx:rw
         networks:
             - app-network
             - app-internal
         ports:
             - 80:80
-            - 443:443
         depends_on:
             - http-site
             - http-cdn
@@ -23,22 +23,24 @@ services:
     http-cdn:
         image: nginx:alpine
         container_name: http-cdn
-        env_file: .env/development
         volumes:
             - ./volumes/http-cdn/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./volumes/http-cdn/docker-entrypoint.d:/docker-entrypoint.d:ro
+            - ./volumes/log:/var/log/nginx:rw
             - ./volumes/http-cdn/www:/var/www:ro
         networks: 
             - app-internal
         ports:
-            - 8081:80        
+            - 8081:80
         restart: always
 
     http-site:
         image: nginx:alpine
         container_name: http-site
-        env_file: .env/development
         volumes:
             - ./volumes/http-site/nginx.conf:/etc/nginx/conf.d/default.conf:ro            
+            - ./volumes/http-site/docker-entrypoint.d:/docker-entrypoint.d:ro
+            - ./volumes/log:/var/log/nginx:rw
             - ./volumes/http-site/www:/var/www:ro
         networks:
             - app-internal
