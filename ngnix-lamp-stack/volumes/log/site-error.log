@@ -1,0 +1,7 @@
+2020/09/02 02:13:50 [error] 8#8: *1 directory index of "/site/www/" is forbidden, client: 172.29.0.6, server: , request: "GET / HTTP/1.0", host: "invlabsserver.local"
+2020/09/02 02:13:51 [error] 8#8: *2 directory index of "/site/www/" is forbidden, client: 172.29.0.6, server: , request: "GET / HTTP/1.0", host: "invlabsserver.local"
+2020/09/02 02:17:42 [error] 8#8: *1 directory index of "/site/www/" is forbidden, client: 172.31.0.6, server: , request: "GET / HTTP/1.0", host: "invlabsserver.local"
+2020/09/02 02:17:43 [error] 8#8: *2 directory index of "/site/www/" is forbidden, client: 172.31.0.6, server: , request: "GET / HTTP/1.0", host: "invlabsserver.local"
+2020/09/02 02:17:43 [error] 8#8: *3 open() "/site/www/favicon.ico" failed (2: No such file or directory), client: 172.31.0.6, server: , request: "GET /favicon.ico HTTP/1.0", host: "invlabsserver.local", referrer: "https://invlabsserver.local/"
+2020/09/02 02:17:47 [error] 8#8: *4 directory index of "/site/www/" is forbidden, client: 172.31.0.6, server: , request: "GET / HTTP/1.0", host: "invlabsserver.local"
+2020/09/02 02:21:16 [error] 8#8: *5 directory index of "/site/www/" is forbidden, client: 172.31.0.6, server: , request: "GET / HTTP/1.0", host: "invlabsserver.local"
