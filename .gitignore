@@ -1,1 +1,6 @@
 **/logs
+**/data
+**/var
+**/.env
+**/.vscode
+.DS_Store

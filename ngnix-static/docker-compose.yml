@@ -1,47 +1,47 @@
 version: "3.7"
 services: 
-    http-proxy:
+    proxy:
         image: nginx:alpine
-        container_name: http-proxy
+        container_name: proxy
         volumes:
-            - ./volumes/http-proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-            - ./volumes/http-proxy/docker-entrypoint.d:/docker-entrypoint.d:ro
-            - ./volumes/log:/var/log/nginx:rw
+            - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./proxy/docker-entrypoint.d:/docker-entrypoint.d:ro
+            - ./log:/var/log/nginx:rw
         networks:
             - app-network
             - app-internal
         ports:
             - 80:80
         depends_on:
-            - http-site
-            - http-cdn
+            - site
+            - cdn
         links: 
-            - http-site
-            - http-cdn
+            - site
+            - cdn
         restart: always
 
-    http-cdn:
+    cdn:
         image: nginx:alpine
-        container_name: http-cdn
+        container_name: cdn
         volumes:
-            - ./volumes/http-cdn/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-            - ./volumes/http-cdn/docker-entrypoint.d:/docker-entrypoint.d:ro
-            - ./volumes/log:/var/log/nginx:rw
-            - ./volumes/http-cdn/www:/var/www:ro
+            - ./cdn/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./cdn/docker-entrypoint.d:/docker-entrypoint.d:ro
+            - ./cdn/www:/var/www:ro
+            - ./log:/var/log/nginx:rw
         networks: 
             - app-internal
         ports:
             - 8081:80
         restart: always
 
-    http-site:
+    site:
         image: nginx:alpine
-        container_name: http-site
+        container_name: site
         volumes:
-            - ./volumes/http-site/nginx.conf:/etc/nginx/conf.d/default.conf:ro            
-            - ./volumes/http-site/docker-entrypoint.d:/docker-entrypoint.d:ro
-            - ./volumes/log:/var/log/nginx:rw
-            - ./volumes/http-site/www:/var/www:ro
+            - ./site/nginx.conf:/etc/nginx/conf.d/default.conf:ro            
+            - ./site/docker-entrypoint.d:/docker-entrypoint.d:ro
+            - ./log:/var/log/nginx:rw
+            - ./site/www:/var/www:ro
         networks:
             - app-internal
         ports:
