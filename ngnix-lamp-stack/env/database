@@ -1,4 +1,0 @@
-MYSQL_ROOT_PASSWORD="development-root-password"
-MYSQL_USER="website-user"
-MYSQL_PASSWORD="website-user-password"
-# MYSQL_DATABASE="website"
