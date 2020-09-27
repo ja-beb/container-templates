@@ -59,7 +59,9 @@ services:
         restart: always
 
     php-fpm:
-        image: "php:8.0-rc-fpm"
+        build:
+            context: ./dockerfile
+            dockerfile: php
         container_name: "site-php"
         volumes:
             - ./etc/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
@@ -82,6 +84,7 @@ services:
             - ./data:/var/lib/mysql:rw
         networks: 
             - network-private
+            - network-public
         ports:
             - 3306:3306
         restart: always
