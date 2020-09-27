@@ -79,6 +79,7 @@ services:
         image: mariadb:latest
         container_name: "database"
         env_file: .env/database
+            
         volumes:
             - ./entrypoint/database:/docker-entrypoint-initdb.d:ro
             - ./data:/var/lib/mysql:rw

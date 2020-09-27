@@ -1,5 +1,5 @@
 
 <?php 
-    $_database = mysqli_connect('database','website-user','website-user-password','website');
+    $_database = mysqli_connect('database','website','password','website');
 ?>
 <?php phpinfo();  ?>
