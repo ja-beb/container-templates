@@ -59,8 +59,8 @@ services:
         restart: always
 
     php-fpm:
-        image: "php:8.0-rc-fpm-alpine"
-        container_name: "php-site"
+        image: "php:8.0-rc-fpm"
+        container_name: "site-php"
         volumes:
             - ./etc/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
             - ./etc/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
