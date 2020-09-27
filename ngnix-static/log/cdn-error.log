@@ -1,1 +1,0 @@
-2020/09/23 19:31:16 [error] 9#9: *2 open() "/var/www/favicon.ico" failed (2: No such file or directory), client: 192.168.240.4, server: , request: "GET /favicon.ico HTTP/1.0", host: "cdn.invlabsserver.local", referrer: "http://cdn.invlabsserver.local/media/test.png"
