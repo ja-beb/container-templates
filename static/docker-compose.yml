@@ -5,6 +5,9 @@ services:
         container_name: proxy
         volumes:
             - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./proxy/ssl:/etc/ssl/private:ro            
+            - ./proxy/self-signed.conf:/etc/nginx/conf.d/self-signed.conf:ro            
+            - ./proxy/ssl-params.conf:/etc/nginx/conf.d/ssl-params.conf:ro            
             - ./proxy/docker-entrypoint.d:/docker-entrypoint.d:ro
             - ./log:/var/log/nginx:rw
         networks:
@@ -12,6 +15,7 @@ services:
             - app-internal
         ports:
             - 80:80
+            - 443:443
         depends_on:
             - site
             - cdn
@@ -31,7 +35,7 @@ services:
         networks: 
             - app-internal
         ports:
-            - 8081:80
+            - 80:80
         restart: always
 
     site:
@@ -45,7 +49,7 @@ services:
         networks:
             - app-internal
         ports:
-            - 8082:80
+            - 80:80
         restart: always
 
 networks:
