@@ -3,4 +3,7 @@
 **/var
 **/.env
 **/.vscode
+*.key
+*.crt
+*.pem
 .DS_Store
