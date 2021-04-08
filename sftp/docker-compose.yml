@@ -6,8 +6,7 @@ services:
         container_name: sftp
         build: .
         volumes:
-            - ./ssh_keys/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key:ro
-            - ./ssh_keys/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key:ro
+            - ./private:/etc/ssh/private:ro
             - ./sshd_config:/etc/ssh/sshd_config:ro
             - ./home:/home/sftp:rw
         ports:

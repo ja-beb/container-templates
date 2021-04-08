@@ -6,4 +6,10 @@
 *.key
 *.crt
 *.pem
+
+# SFTP ignore
+sftp/ssh_private/
+sftp/private/
+sftp/home
+
 .DS_Store
