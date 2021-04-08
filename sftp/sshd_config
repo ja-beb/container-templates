@@ -1,0 +1,29 @@
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+<<<<<<< HEAD
+# Authentication:
+=======
+>>>>>>> 98c82c05e8c1b7d6465aef15d15adf124a3ee8d0
+PermitRootLogin no
+PubkeyAuthentication yes
+UseDNS no
+PasswordAuthentication yes
+
+AllowTcpForwarding yes
+GatewayPorts no
+X11Forwarding no
+
+<<<<<<< HEAD
+# override default of no subsystems
+Subsystem	sftp	/usr/lib/ssh/sftp-server
+
+# Allow client to pass locale environment variables.
+AcceptEnv LANG LC_ALL LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME LANGUAGE LC_ADDRESS LC_IDENTIFICATION LC_MEASUREMENT LC_NAME LC_PAPER LC_TELEPHONE
+
+# Allow client to pass COLORTERM to match TERM. #658540
+=======
+Subsystem	sftp	/usr/lib/ssh/sftp-server
+AcceptEnv LANG LC_ALL LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME LANGUAGE LC_ADDRESS LC_IDENTIFICATION LC_MEASUREMENT LC_NAME LC_PAPER LC_TELEPHONE
+>>>>>>> 98c82c05e8c1b7d6465aef15d15adf124a3ee8d0
+AcceptEnv COLORTERM
