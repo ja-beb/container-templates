@@ -10,6 +10,7 @@ AllowTcpForwarding yes
 GatewayPorts no
 X11Forwarding no
 
-Subsystem	sftp	/usr/lib/ssh/sftp-server
+# Subsystem sftp /usr/lib/openssh/sftp-server
+Subsystem sftp internal-sftp
 AcceptEnv LANG LC_ALL LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME LANGUAGE LC_ADDRESS LC_IDENTIFICATION LC_MEASUREMENT LC_NAME LC_PAPER LC_TELEPHONE
 AcceptEnv COLORTERM

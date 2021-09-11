@@ -3,8 +3,8 @@
 
 # Create folders
 mkdir private
-mkdir home
-mkdir home/.ssh
+mkdir sftp
+mkdir sftp/.ssh
 
 # Create authorized keys file
 touch home/.ssh/authorized_keys
