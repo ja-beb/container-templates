@@ -1,8 +1,7 @@
 FROM alpine:latest
 LABEL Maintainer="sean bourg <sean.bourg@gmail.com>"
 
-RUN apk add openssh && \
-    apk update 
+RUN apk update && apk add openssh
 
 EXPOSE 22
 
