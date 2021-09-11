@@ -4,12 +4,11 @@ services:
         image: nginx:alpine
         container_name: proxy
         volumes:
-            - ./etc/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
-            - ./etc/ssl:/etc/ssl/private:ro
-            - ./etc/self-signed.conf:/etc/nginx/conf.d/self-signed.conf:ro            
-            - ./etc/ssl-params.conf:/etc/nginx/conf.d/ssl-params.conf:ro            
-            - ./entrypoint/proxy:/docker-entrypoint.d:ro
-            - ./log:/var/log/nginx:rw
+            - ./local/etc/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./private/ssl:/etc/ssl/private:ro
+            - ./local/etc/self-signed.conf:/etc/nginx/conf.d/self-signed.conf:ro            
+            - ./local/etc/ssl-params.conf:/etc/nginx/conf.d/ssl-params.conf:ro            
+            - ./var:/var/log/nginx:rw
         networks:
             - app-network
             - app-internal
@@ -28,10 +27,9 @@ services:
         image: nginx:alpine
         container_name: cdn
         volumes:
-            - ./etc/nginx-cdn.conf:/etc/nginx/conf.d/default.conf:ro
-            - ./entrypoint/cdn:/docker-entrypoint.d:ro
-            - ./cdn:/var/www/html:ro
-            - ./log:/var/log/nginx:rw
+            - ./local/etc/nginx-cdn.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./local/cdn:/var/www/html:ro
+            - ./var/log:/var/log/nginx:rw
         networks: 
             - app-internal
         ports:
@@ -42,10 +40,9 @@ services:
         image: nginx:alpine
         container_name: site
         volumes:
-            - ./etc/nginx-site.conf:/etc/nginx/conf.d/default.conf:ro            
-            - ./entrypoint/site:/docker-entrypoint.d:ro
-            - ./log:/var/log/nginx:rw
-            - ./site:/var/www:ro
+            - ./local/etc/nginx-site.conf:/etc/nginx/conf.d/default.conf:ro            
+            - ./var/log:/var/log/nginx:rw
+            - ./local/site:/var/www:ro
         networks:
             - app-internal
         ports:

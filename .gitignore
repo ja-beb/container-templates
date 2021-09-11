@@ -7,9 +7,12 @@
 *.crt
 *.pem
 
+# Docker ignores
+**/private
+**/var
+
+
 # SFTP ignore
-sftp/ssh_private/
-sftp/private/
 sftp/home
 
 .DS_Store
