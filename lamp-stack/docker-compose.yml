@@ -18,8 +18,8 @@ services:
             - network-public
             - network-private
         ports:
-            - 80:80
-            - 443:443
+            - "80:80"
+            - "443:443"
         restart: always
         depends_on:
             - site
@@ -90,8 +90,7 @@ services:
             - network-public
         ports:
             - 3306:3306
-        restart: always
-        
+        restart: always    
 
 networks:
     network-public:
