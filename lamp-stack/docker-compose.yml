@@ -8,10 +8,10 @@ services:
         image: "nginx:alpine"
         container_name: "proxy"
         volumes:
-            - ./etc/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
-            - ./etc/ssl:/etc/ssl/private:ro
-            - ./etc/self-signed.conf:/etc/nginx/conf.d/self-signed.conf:ro            
-            - ./etc/ssl-params.conf:/etc/nginx/conf.d/ssl-params.conf:ro   
+            - ./local/etc/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./local/etc/ssl:/etc/ssl/private:ro
+            - ./local/etc/self-signed.conf:/etc/nginx/conf.d/self-signed.conf:ro            
+            - ./local/etc/ssl-params.conf:/etc/nginx/conf.d/ssl-params.conf:ro   
             - ./entrypoint/proxy:/docker-entrypoint.d:ro
             - ./log:/var/log/nginx:rw
         networks:
@@ -32,10 +32,10 @@ services:
         image: "nginx:alpine"
         container_name: "cdn"
         volumes:
-            - ./etc/nginx-cdn.conf:/etc/nginx/conf.d/default.conf:ro            
+            - ./local/etc/nginx-cdn.conf:/etc/nginx/conf.d/default.conf:ro            
             - ./entrypoint/cdn:/docker-entrypoint.d:ro
             - ./log:/var/log/nginx:rw
-            - ./cdn:/www:ro
+            - ./local/cdn:/www:ro
         networks:
             - network-private            
         ports:
@@ -46,10 +46,10 @@ services:
         image: "nginx:alpine"
         container_name: "site"
         volumes:
-            - ./etc/nginx-site.conf:/etc/nginx/conf.d/default.conf:ro            
+            - ./local/etc/nginx-site.conf:/etc/nginx/conf.d/default.conf:ro            
             - ./entrypoint/site:/docker-entrypoint.d:ro
             - ./log:/var/log/nginx:rw
-            - ./site/www:/site/www:ro
+            - ./local/site/www:/site/www:ro
         depends_on:
             - php-fpm
         links:
@@ -61,18 +61,16 @@ services:
         restart: always
 
     php-fpm:
-        build:
-            context: ./dockerfile
-            dockerfile: php
+        build: .
         container_name: "site-php"
         volumes:
-            - ./etc/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
-            - ./etc/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
-            - ./etc/config.ini:/usr/local/etc/php/conf.d/config.ini:ro
-            - ./site/www:/site/www:ro
-            - ./site/include:/site/include:ro
-            - ./site/view:/site/view:ro
-            - ./site/config:/site/config:ro
+            - ./local/etc/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+            - ./local/etc/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
+            - ./local/etc/config.ini:/usr/local/etc/php/conf.d/config.ini:ro
+            - ./local/site/www:/site/www:ro
+            - ./local/site/include:/site/include:ro
+            - ./local/site/view:/site/view:ro
+            - ./local/site/config:/site/config:ro
         networks:
             - network-private
         restart: always
