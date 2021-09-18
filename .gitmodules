@@ -7,3 +7,6 @@
 [submodule "container-static"]
 	path = container-static
 	url = https://github.com/sean-bourg/container-static.git
+[submodule "container-lamp"]
+	path = container-lamp
+	url = https://github.com/sean-bourg/container-lamp.git
