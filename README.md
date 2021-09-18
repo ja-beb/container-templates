@@ -1,5 +1,7 @@
-# docker-templates
+# Container Templates
 
-A collection of Docker templates for creating base NGINX sites and SFTP server for local development and testing. 
+A collection of container templates for creating base servers for local development and testing. 
+
+
 
 
