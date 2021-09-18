@@ -1,3 +1,6 @@
 [submodule "sftp/container-sftp"]
 	path = sftp/container-sftp
 	url = https://github.com/sean-bourg/container-sftp.git
+[submodule "container-sftp"]
+	path = container-sftp
+	url = https://github.com/sean-bourg/container-sftp.git
