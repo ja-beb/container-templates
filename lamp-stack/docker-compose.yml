@@ -12,7 +12,7 @@ services:
             - ./local/etc/ssl:/etc/ssl/private:ro
             - ./local/etc/self-signed.conf:/etc/nginx/conf.d/self-signed.conf:ro            
             - ./local/etc/ssl-params.conf:/etc/nginx/conf.d/ssl-params.conf:ro   
-            - ./entrypoint/proxy:/docker-entrypoint.d:ro
+            - ./local/entrypoint/proxy:/docker-entrypoint.d:ro
             - ./log:/var/log/nginx:rw
         networks:
             - network-public
@@ -33,13 +33,13 @@ services:
         container_name: "cdn"
         volumes:
             - ./local/etc/nginx-cdn.conf:/etc/nginx/conf.d/default.conf:ro            
-            - ./entrypoint/cdn:/docker-entrypoint.d:ro
+            - ./local/entrypoint/cdn:/docker-entrypoint.d:ro
             - ./log:/var/log/nginx:rw
             - ./local/cdn:/www:ro
         networks:
             - network-private            
         ports:
-            - 80:80
+            - "80:80"
         restart: always            
 
     site:
@@ -47,7 +47,7 @@ services:
         container_name: "site"
         volumes:
             - ./local/etc/nginx-site.conf:/etc/nginx/conf.d/default.conf:ro            
-            - ./entrypoint/site:/docker-entrypoint.d:ro
+            - ./local/entrypoint/site:/docker-entrypoint.d:ro
             - ./log:/var/log/nginx:rw
             - ./local/site/www:/site/www:ro
         depends_on:
@@ -57,7 +57,7 @@ services:
         networks:
             - network-private
         ports:
-            - 80:80
+            - "80:80"
         restart: always
 
     php-fpm:
@@ -81,13 +81,13 @@ services:
         env_file: database.env
             
         volumes:
-            - ./entrypoint/database:/docker-entrypoint-initdb.d:ro
-            - ./data:/var/lib/mysql:rw
+            - ./local/entrypoint/database:/docker-entrypoint-initdb.d:ro
+            - ./local/data:/var/lib/mysql:rw
         networks: 
             - network-private
             - network-public
         ports:
-            - 3306:3306
+            - "3306:3306"
         restart: always    
 
 networks:

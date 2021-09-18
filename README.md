@@ -1,3 +1,5 @@
 # docker-templates
-Docker templates for base NGINX sites and SFTP server. Used for local development and testing.
+
+A collection of Docker templates for creating base NGINX sites and SFTP server for local development and testing. 
+
 

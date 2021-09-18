@@ -6,6 +6,17 @@
 mkdir var
 mkdir private
 
+# Create entrypoint folders.
+if [ ! -d private/ssl ]
+then
+    mkdir entrypoint
+    mkdir entrypoint/proxy
+    mkdir entrypoint/cdn
+    mkdir entrypoint/site
+    mkdir entrypoint/database
+fi
+
+
 # If ssl foldeer does not exist create folder and keys.
 if [ ! -d private/ssl ]
 then

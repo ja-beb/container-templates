@@ -2,7 +2,7 @@
 Docker templates for a simple static site using NGINX. Resulting environment includes both a base site and a cdn server behind a proxy.
 
 ## Setup
-1. To create the base file structure and generate SSL keys use the `setup.sh` script included.
+1. To create the base file structure and generate SSL keys use the `bin\setup.sh` script included.
 2. Add the following entries to the system's host file(or update the nginx config files for the base addresses you wish to use):
 	* 127.0.0.1 site.localhost cdn.localhost
 	* ::1 site.localhost cdn.localhost
