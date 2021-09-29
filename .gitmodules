@@ -1,3 +1,9 @@
 [submodule "container-lamp"]
 	path = container-lamp
 	url = https://github.com/sean-bourg/container-lamp.git
+[submodule "container-static"]
+	path = container-static
+	url = git@github.com:sean-bourg/container-static.git
+[submodule "container-sftp"]
+	path = container-sftp
+	url = git@github.com:sean-bourg/container-sftp.git
