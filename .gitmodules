@@ -10,3 +10,4 @@
 [submodule "container-lamp"]
 	path = container-lamp
 	url = https://github.com/sean-bourg/container-lamp.git
+	branch = main
