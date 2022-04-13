@@ -10,3 +10,6 @@
 [submodule "container-php-codesniffer"]
 	path = container-php-codesniffer
 	url = git@github.com:sean-bourg/container-php-codesniffer.git
+[submodule "container-flask"]
+	path = container-flask
+	url = git@github.com:sean-bourg/container-flask.git
