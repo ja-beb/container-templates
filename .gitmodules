@@ -13,3 +13,6 @@
 [submodule "container-flask"]
 	path = container-flask
 	url = git@github.com:sean-bourg/container-flask.git
+[submodule "container-fastapi-mongodb"]
+	path = container-fastapi-mongodb
+	url = git@github.com:sean-bourg/container-fastapi-mongodb.git
